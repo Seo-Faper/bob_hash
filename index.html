@@ -23,11 +23,19 @@
 .drop-zone-dragenter, .drop-zone-dragover {
    background-color: #220ebcc8;
 }
+.d1{
+    display: flex;
+}
+@media (max-width: 767px) {
+  .d1 {
+    display: block; /* 또는 원하는 다른 display 속성으로 변경하세요 */
+  }
+}
 
 </style>
 <h3>JH Magic web</h3>
 
-<div style="display: flex;">
+<div class="d1">
 <div>
 
     <form>
@@ -44,8 +52,9 @@
     </form>
 
 </div>
-
+<div>
 <pre id="myPreTag"></pre>
+</div>
 </div>
     <script src="file.js"></script>
 </body>
