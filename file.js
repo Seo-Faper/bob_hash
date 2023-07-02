@@ -86,7 +86,23 @@
 
 })();
 
-
+function addCommasToInteger(num) {
+    // 정수를 문자열로 변환
+    var str = num.toString();
+  
+    // 세 자리마다 쉼표를 삽입
+    var result = "";
+    var count = 0;
+    for (var i = str.length - 1; i >= 0; i--) {
+      result = str.charAt(i) + result;
+      count++;
+      if (count % 3 === 0 && i !== 0) {
+        result = "," + result;
+      }
+    }
+  
+    return result;
+  }
 $(document).ready(function () {
     $("#btn").click(function () {
         var reader = new FileReader(); //define a Reader
@@ -106,7 +122,7 @@ $(document).ready(function () {
             var md5_hash = CryptoJS.MD5(file_wordArr); //calculate MD5 hash
             $('#myPreTag').text(`
             FILENAME : "${name}"
-            FILESIZE : ${size} KB
+            FILESIZE : ${addCommasToInteger(size)} KB
             MD5 : ${md5_hash}
             SHA1 : ${sha1_hash}
             SHA256 : ${sha256_hash}
