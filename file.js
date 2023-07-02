@@ -123,9 +123,9 @@ $(document).ready(function () {
             $('#myPreTag').text(`
             FILENAME : "${name}"
             FILESIZE : ${addCommasToInteger(size)} KB
-            MD5 : ${md5_hash}
-            SHA1 : ${sha1_hash}
-            SHA256 : ${sha256_hash}
+            MD5      : ${md5_hash}
+            SHA1     : ${sha1_hash}
+            SHA256   : ${sha256_hash}
             `);
         };
         reader.readAsArrayBuffer(file); //read file as ArrayBuffer
