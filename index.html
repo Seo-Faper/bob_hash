@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9/sha256.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/sha1-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/lib-typedarrays-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+</head>
+<body>
+<style>
+    .drop-zone {
+    width: 500px;
+    height: 500px;
+    background-color: azure
+}
+
+.drop-zone-dragenter, .drop-zone-dragover {
+   background-color: #220ebcc8;
+}
+
+</style>
+<h3>JH Magic web</h3>
+
+<div style="display: flex;">
+<div>
+
+    <form>
+        <div style="display: flex;">
+            <input type="file" id="f1" multiple>
+            <input type="button" id="btn" value="calculate hash" />
+        </div>
+
+    
+        <div class="drop-zone">
+           파일을 여기로 드래그하세요.
+        </div>
+    
+    </form>
+
+</div>
+
+<pre id="myPreTag"></pre>
+</div>
+    <script src="file.js"></script>
+</body>
+</html>
