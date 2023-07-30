@@ -120,12 +120,13 @@ $(document).ready(function () {
             var sha256_hash = CryptoJS.SHA256(file_wordArr);
             var sha1_hash = CryptoJS.SHA1(file_wordArr); //calculate SHA1 hash
             var md5_hash = CryptoJS.MD5(file_wordArr); //calculate MD5 hash
-            $('#myPreTag').text(`
-            FILENAME : "${name}"
-            FILESIZE : ${addCommasToInteger(size)} bytes
-            MD5      : ${md5_hash}
-            SHA1     : ${sha1_hash}
-            SHA256   : ${sha256_hash}
+            $('#myPreTag').text(
+        `
+FILENAME : "${name}"
+FILESIZE : ${addCommasToInteger(size)} bytes
+MD5      : ${md5_hash}
+SHA1     : ${sha1_hash}
+SHA256   : ${sha256_hash}
             `);
         };
         reader.readAsArrayBuffer(file); //read file as ArrayBuffer
