@@ -120,8 +120,21 @@ $(document).ready(function () {
             var sha256_hash = CryptoJS.SHA256(file_wordArr);
             var sha1_hash = CryptoJS.SHA1(file_wordArr); //calculate SHA1 hash
             var md5_hash = CryptoJS.MD5(file_wordArr); //calculate MD5 hash
+            var title = name.split(".")[0];
+            $('#mtitle').text(
+                title
+            );
+            console.log(title);     
             $('#myPreTag').text(
-        `
+`
+안녕하십니까? 김종현멘토님
+
+저는 BoB 12기 디지털 포렌식 트랙 권재민입니다.
+
+요청하신 팀 과제 첨부하여 보내드립니다.
+
+감사합니다.
+
 FILENAME : "${name}"
 FILESIZE : ${addCommasToInteger(size)} bytes
 MD5      : ${md5_hash}
@@ -135,7 +148,21 @@ SHA256   : ${sha256_hash}
       $('#myPreTag').click(function() {
         // pre 태그 안의 텍스트 가져오기
         var text = $(this).text();
-    
+        
+        // 가상의 textarea 엘리먼트를 생성하여 클립보드에 복사
+        var tempElement = $('<textarea>');
+        $('body').append(tempElement);
+        tempElement.val(text).select();
+        document.execCommand('copy');
+        tempElement.remove();
+        
+        alert("복사되었습니다.");
+        
+      });
+      $('#mtitle').click(function() {
+        // pre 태그 안의 텍스트 가져오기
+        var text = $(this).text();
+        
         // 가상의 textarea 엘리먼트를 생성하여 클립보드에 복사
         var tempElement = $('<textarea>');
         $('body').append(tempElement);
