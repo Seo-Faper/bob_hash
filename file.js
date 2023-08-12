@@ -1,5 +1,6 @@
+var submit_name =  prompt('이름 입력', '');    
 (function() {
-        
+
     var $file = document.getElementById("f1")
     var dropZone = document.querySelector(".drop-zone")
 
@@ -129,7 +130,7 @@ $(document).ready(function () {
 `
 안녕하십니까? 김종현멘토님
 
-저는 BoB 12기 디지털 포렌식 트랙 권재민입니다.
+저는 BoB 12기 디지털 포렌식 트랙 ${submit_name}입니다.
 
 요청하신 팀 과제 첨부하여 보내드립니다.
 
