@@ -130,7 +130,7 @@ $(document).ready(function () {
 `
 파일 명 : "${name}"
 파일 크기 : ${addCommasToInteger(size)} bytes
-SHA256   : ${sha256_hash}
+해시값 (SHA256)   : ${sha256_hash}
             `);
         };
         reader.readAsArrayBuffer(file); //read file as ArrayBuffer
