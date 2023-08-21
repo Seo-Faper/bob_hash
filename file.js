@@ -132,7 +132,7 @@ reader.onload = function (f) {
                 <td>파일 명:</td>
                 <td>${name}</td>
             </tr>
-            <tr>
+            <tr>    
                 <td>파일 크기:</td>
                 <td>${addCommasToInteger(size)} bytes</td>
             </tr>
