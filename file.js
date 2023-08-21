@@ -128,18 +128,8 @@ $(document).ready(function () {
             console.log(title);     
             $('#myPreTag').text(
 `
-안녕하십니까? 김종현멘토님
-
-저는 BoB 12기 디지털 포렌식 트랙 ${submit_name}입니다.
-
-요청하신 팀 과제 첨부하여 보내드립니다.
-
-감사합니다.
-
-FILENAME : "${name}"
-FILESIZE : ${addCommasToInteger(size)} bytes
-MD5      : ${md5_hash}
-SHA1     : ${sha1_hash}
+파일 명 : "${name}"
+파일 크기 : ${addCommasToInteger(size)} bytes
 SHA256   : ${sha256_hash}
             `);
         };
