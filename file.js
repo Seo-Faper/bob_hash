@@ -115,24 +115,39 @@ $(document).ready(function () {
             return;
         } //check if user selected a file
 
-        reader.onload = function (f) {
-            var file_result = this.result; // this == reader, get the loaded file "result"
-            var file_wordArr = CryptoJS.lib.WordArray.create(file_result); //convert blob to WordArray , see https://code.google.com/p/crypto-js/issues/detail?id=67
-            var sha256_hash = CryptoJS.SHA256(file_wordArr);
-            var sha1_hash = CryptoJS.SHA1(file_wordArr); //calculate SHA1 hash
-            var md5_hash = CryptoJS.MD5(file_wordArr); //calculate MD5 hash
-            var title = name.split(".")[0];
-            $('#mtitle').text(
-                title
-            );
-            console.log(title);     
-            $('#myPreTag').text(
-`
-파일 명 : "${name}"
-파일 크기 : ${addCommasToInteger(size)} bytes
-해시값 (SHA256)   : ${sha256_hash}
-            `);
-        };
+        // ... (your existing code)
+
+reader.onload = function (f) {
+    var file_result = this.result;
+    var file_wordArr = CryptoJS.lib.WordArray.create(file_result);
+    var sha256_hash = CryptoJS.SHA256(file_wordArr);
+    var sha1_hash = CryptoJS.SHA1(file_wordArr);
+    var md5_hash = CryptoJS.MD5(file_wordArr);
+    var title = name.split(".")[0];
+    $('#mtitle').text(title);
+
+    var tableHTML = `
+        <table>
+            <tr>
+                <td>파일 명:</td>
+                <td>${name}</td>
+            </tr>
+            <tr>
+                <td>파일 크기:</td>
+                <td>${addCommasToInteger(size)} bytes</td>
+            </tr>
+            <tr>
+                <td>해시값 (SHA256):</td>
+                <td>${sha256_hash}</td>
+            </tr>
+        </table>
+    `;
+    
+    $('#myPreTag').html(tableHTML);
+};
+
+// ... (rest of your code)
+
         reader.readAsArrayBuffer(file); //read file as ArrayBuffer
     });
       // pre 태그 클릭 이벤트 핸들러
