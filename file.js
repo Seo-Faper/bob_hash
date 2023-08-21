@@ -161,7 +161,7 @@ SHA256   : ${sha256_hash}
         document.execCommand('copy');
         tempElement.remove();
         
-        alert("복사되었습니다.");
+       // alert("복사되었습니다.");
         
       });
 });
