@@ -123,7 +123,7 @@ $(document).ready(function () {
             var md5_hash = CryptoJS.MD5(file_wordArr); //calculate MD5 hash
             var title = name.split(".")[0];
             $('#mtitle').text(
-                sha256_hash
+                title
             );
             console.log(title);     
             $('#myPreTag').text(
@@ -147,7 +147,7 @@ SHA256   : ${sha256_hash}
         document.execCommand('copy');
         tempElement.remove();
         
-        alert("복사되었습니다.");
+       // alert("복사되었습니다.");
         
       });
       $('#mtitle').click(function() {
