@@ -115,39 +115,34 @@ $(document).ready(function () {
             return;
         } //check if user selected a file
 
-        // ... (your existing code)
+        reader.onload = function (f) {
+            var file_result = this.result; // this == reader, get the loaded file "result"
+            var file_wordArr = CryptoJS.lib.WordArray.create(file_result); //convert blob to WordArray , see https://code.google.com/p/crypto-js/issues/detail?id=67
+            var sha256_hash = CryptoJS.SHA256(file_wordArr);
+            var sha1_hash = CryptoJS.SHA1(file_wordArr); //calculate SHA1 hash
+            var md5_hash = CryptoJS.MD5(file_wordArr); //calculate MD5 hash
+            var title = name.split(".")[0];
+            $('#mtitle').text(
+                title
+            );
+            console.log(title);     
+            $('#myPreTag').text(
+`
+안녕하십니까? 김종현멘토님
 
-reader.onload = function (f) {
-    var file_result = this.result;
-    var file_wordArr = CryptoJS.lib.WordArray.create(file_result);
-    var sha256_hash = CryptoJS.SHA256(file_wordArr);
-    var sha1_hash = CryptoJS.SHA1(file_wordArr);
-    var md5_hash = CryptoJS.MD5(file_wordArr);
-    var title = name.split(".")[0];
-    $('#mtitle').text(title);
+저는 BoB 12기 디지털 포렌식 트랙 ${submit_name}입니다.
 
-    var tableHTML = `
-        <table>
-            <tr>
-                <td>파일 명:</td>
-                <td>${name}</td>
-            </tr>
-            <tr>    
-                <td>파일 크기:</td>
-                <td>${addCommasToInteger(size)} bytes</td>
-            </tr>
-            <tr>
-                <td>해시값 (SHA256):</td>
-                <td>${sha256_hash}</td>
-            </tr>
-        </table>
-    `;
-    
-    $('#myPreTag').html(tableHTML);
-};
+요청하신 팀 과제 첨부하여 보내드립니다.
 
-// ... (rest of your code)
+감사합니다.
 
+FILENAME : "${name}"
+FILESIZE : ${addCommasToInteger(size)} bytes
+MD5      : ${md5_hash}
+SHA1     : ${sha1_hash}
+SHA256   : ${sha256_hash}
+            `);
+        };
         reader.readAsArrayBuffer(file); //read file as ArrayBuffer
     });
       // pre 태그 클릭 이벤트 핸들러
@@ -162,7 +157,7 @@ reader.onload = function (f) {
         document.execCommand('copy');
         tempElement.remove();
         
-       // alert("복사되었습니다.");
+        alert("복사되었습니다.");
         
       });
       $('#mtitle').click(function() {
@@ -176,7 +171,7 @@ reader.onload = function (f) {
         document.execCommand('copy');
         tempElement.remove();
         
-       // alert("복사되었습니다.");
+        alert("복사되었습니다.");
         
       });
 });
