@@ -1,1 +1,3 @@
-$("body").onload(alert(1));
+$(document).ready(function() {
+    alert(1);
+});
